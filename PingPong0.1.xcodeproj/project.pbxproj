@@ -11,13 +11,16 @@
 		1A07C88E22A6EFAC00A586B0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A07C88C22A6EFAC00A586B0 /* Interface.storyboard */; };
 		1A07C89022A6EFAE00A586B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A07C88F22A6EFAE00A586B0 /* Assets.xcassets */; };
 		1A07C89722A6EFAE00A586B0 /* PingPong0.1 WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1A07C89622A6EFAE00A586B0 /* PingPong0.1 WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		1A07C89C22A6EFAE00A586B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07C89B22A6EFAE00A586B0 /* ContentView.swift */; };
 		1A07C89E22A6EFAE00A586B0 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07C89D22A6EFAE00A586B0 /* HostingController.swift */; };
 		1A07C8A022A6EFAE00A586B0 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07C89F22A6EFAE00A586B0 /* ExtensionDelegate.swift */; };
 		1A07C8A222A6EFAE00A586B0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07C8A122A6EFAE00A586B0 /* NotificationController.swift */; };
 		1A07C8A422A6EFAE00A586B0 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07C8A322A6EFAE00A586B0 /* NotificationView.swift */; };
 		1A07C8A622A6EFAF00A586B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A07C8A522A6EFAF00A586B0 /* Assets.xcassets */; };
 		1A07C8A922A6EFAF00A586B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A07C8A822A6EFAF00A586B0 /* Preview Assets.xcassets */; };
+		1A0A0E8522A86030008E9142 /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0A0E8422A86030008E9142 /* GameSelectionView.swift */; };
+		1A0A0E8722A8ECEF008E9142 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */; };
+		1A8331B522A7112800687EEE /* PointsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07C89B22A6EFAE00A586B0 /* PointsSelectionView.swift */; };
+		1AC0F40922A786EE0098EF3F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0F40822A786EE0098EF3F /* ScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +72,7 @@
 		1A07C88F22A6EFAE00A586B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A07C89122A6EFAE00A586B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A07C89622A6EFAE00A586B0 /* PingPong0.1 WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PingPong0.1 WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A07C89B22A6EFAE00A586B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1A07C89B22A6EFAE00A586B0 /* PointsSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsSelectionView.swift; sourceTree = "<group>"; };
 		1A07C89D22A6EFAE00A586B0 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		1A07C89F22A6EFAE00A586B0 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		1A07C8A122A6EFAE00A586B0 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -78,6 +81,9 @@
 		1A07C8A822A6EFAF00A586B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A07C8AA22A6EFAF00A586B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A07C8AB22A6EFAF00A586B0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		1A0A0E8422A86030008E9142 /* GameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionView.swift; sourceTree = "<group>"; };
+		1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		1AC0F40822A786EE0098EF3F /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +129,6 @@
 		1A07C89A22A6EFAE00A586B0 /* PingPong0.1 WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1A07C89B22A6EFAE00A586B0 /* ContentView.swift */,
 				1A07C89D22A6EFAE00A586B0 /* HostingController.swift */,
 				1A07C89F22A6EFAE00A586B0 /* ExtensionDelegate.swift */,
 				1A07C8A122A6EFAE00A586B0 /* NotificationController.swift */,
@@ -132,6 +137,10 @@
 				1A07C8AA22A6EFAF00A586B0 /* Info.plist */,
 				1A07C8AB22A6EFAF00A586B0 /* PushNotificationPayload.apns */,
 				1A07C8A722A6EFAF00A586B0 /* Preview Content */,
+				1A07C89B22A6EFAE00A586B0 /* PointsSelectionView.swift */,
+				1A0A0E8422A86030008E9142 /* GameSelectionView.swift */,
+				1AC0F40822A786EE0098EF3F /* ScoreView.swift */,
+				1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */,
 			);
 			path = "PingPong0.1 WatchKit Extension";
 			sourceTree = "<group>";
@@ -272,11 +281,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A0A0E8722A8ECEF008E9142 /* ScoreController.swift in Sources */,
 				1A07C89E22A6EFAE00A586B0 /* HostingController.swift in Sources */,
-				1A07C89C22A6EFAE00A586B0 /* ContentView.swift in Sources */,
+				1A8331B522A7112800687EEE /* PointsSelectionView.swift in Sources */,
 				1A07C8A222A6EFAE00A586B0 /* NotificationController.swift in Sources */,
+				1A0A0E8522A86030008E9142 /* GameSelectionView.swift in Sources */,
 				1A07C8A022A6EFAE00A586B0 /* ExtensionDelegate.swift in Sources */,
 				1A07C8A422A6EFAE00A586B0 /* NotificationView.swift in Sources */,
+				1AC0F40922A786EE0098EF3F /* ScoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

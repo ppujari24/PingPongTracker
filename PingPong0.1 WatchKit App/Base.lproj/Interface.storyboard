@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14815" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NBu-mt-KyX">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14810.11" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NBu-mt-KyX">
     <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14770"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14621"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14619.8"/>
     </dependencies>
     <scenes>
         <!--Hosting Controller-->
         <scene sceneID="RUd-og-cv4">
             <objects>
-                <hostingController id="NBu-mt-KyX" customClass="HostingController" 
-                customModuleProvider="target"/>                
+                <hostingController id="NBu-mt-KyX" customClass="HostingController" customModule="PingPong0_1_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="187" y="141"/>
+        </scene>
+        <!--GameSelectController-->
+        <scene sceneID="DV9-VU-siy">
+            <objects>
+                <controller identifier="GameSelectController" id="dCL-Gp-OPk" customClass="GameSelectController" customModule="PingPong0_1_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="436" y="138"/>
+        </scene>
+        <!--ScoreViewController-->
+        <scene sceneID="Gqt-ut-wlk">
+            <objects>
+                <controller identifier="ScoreViewController" id="Sf1-GH-wmB" customClass="ScoreViewController" customModule="PingPong0_1_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="650" y="134"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                        <label alignment="left" text="Alert ALERT" numberOfLines="0" id="IdU-wH-bcW"/>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
@@ -30,11 +43,10 @@
             </objects>
             <point key="canvasLocation" x="187" y="462"/>
         </scene>
-        <!--Notification Hosting Controller-->
+        <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController"
-                customModuleProvider="target"/>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="PingPong0_1_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="488" y="462"/>
         </scene>
