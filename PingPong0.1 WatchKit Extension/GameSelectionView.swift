@@ -19,6 +19,8 @@ struct GameSelectionView : View {
     @State var numberOfGames: NumberOfGames = 1
     var body: some View {
         VStack {
+            Text("Select # of games below:").lineLimit(0).font(.headline)
+            Spacer()
             HStack {
                 Button(action: {
                     if self.numberOfGames > 1 {
@@ -27,7 +29,7 @@ struct GameSelectionView : View {
                 }) {
                     Text("-")
                 }
-                Text("\(numberOfGames)")
+                Text("\(numberOfGames)").bold().font(.headline)
                 Button(action: {
                     self.numberOfGames = self.numberOfGames + 1
                 }) {
