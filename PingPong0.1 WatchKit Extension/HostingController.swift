@@ -44,6 +44,7 @@ typealias PointsAndGames = (PointsPerGame, NumberOfGames)
 extension GameSelectController : GamesDelegation {
     func didSelect(points: PointsPerGame, numberOfGames: NumberOfGames) {
         let pointsAndGames: PointsAndGames = (points, numberOfGames)
+//        presentController(withName: "ScoreViewController", context: pointsAndGames)
         pushController(withName: "ScoreViewController", context: pointsAndGames)
     }
 }
@@ -63,6 +64,26 @@ class ScoreViewController: WKHostingController<ScoreView> {
     
     
     override var body: ScoreView {
-        return ScoreView(pointsAndGames: (points, numberOfGames))
+        return ScoreView(pointsAndGames: (points, numberOfGames), delegate: self)
+    }
+    
+    
+//    func presentDismissAlert() {
+//        let dismissAction = WKAlertAction(title: "End game!", style: .destructive, handler: { self.dismiss() })
+//        let continueAction = WKAlertAction(title: "Cancel", style: .cancel, handler: {})
+//        presentAlert(withTitle: "End game?",
+//                     message: "Do you wish to end the current game?",
+//                     preferredStyle: .alert, actions: [dismissAction, continueAction])
+//    }
+}
+
+
+extension ScoreViewController: ScoreControllerDelegation {
+    func didFinishGame(_ controller: ScoreController) {
+        let action = WKAlertAction(title: "Close", style: .cancel,
+                                   handler: {
+                                    self.popToRootController()
+        })
+        presentAlert(withTitle: "Congrats!", message: "\(controller.winner!) wins.", preferredStyle: .alert, actions: [ action ])
     }
 }

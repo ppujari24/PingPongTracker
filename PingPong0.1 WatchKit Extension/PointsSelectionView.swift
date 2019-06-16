@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-enum PointsPerGame {
-    case _11
-    case _21
+enum PointsPerGame: UInt, CaseIterable {
+    case _11 = 11
+    case _21 = 21
     
     var text: String {
         switch self {
