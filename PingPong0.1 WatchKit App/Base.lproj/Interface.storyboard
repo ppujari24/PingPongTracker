@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14810.11" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NBu-mt-KyX">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15400" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NBu-mt-KyX">
     <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14619.8"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15400"/>
     </dependencies>
     <scenes>
         <!--Hosting Controller-->
@@ -12,20 +12,6 @@
                 <hostingController id="NBu-mt-KyX" customClass="HostingController" customModule="PingPong0_1_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="187" y="141"/>
-        </scene>
-        <!--GameSelectController-->
-        <scene sceneID="DV9-VU-siy">
-            <objects>
-                <controller identifier="GameSelectController" id="dCL-Gp-OPk" customClass="GameSelectController" customModule="PingPong0_1_WatchKit_App" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="436" y="138"/>
-        </scene>
-        <!--ScoreViewController-->
-        <scene sceneID="Gqt-ut-wlk">
-            <objects>
-                <controller identifier="ScoreViewController" id="Sf1-GH-wmB" customClass="ScoreViewController" customModule="PingPong0_1_WatchKit_App" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="650" y="134"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

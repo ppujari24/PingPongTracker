@@ -11,24 +11,24 @@ import Foundation
 typealias Player = String
 
 
-class ScoreController {
-    let pointsPerGame: PointsPerGame
-    let numberOfGames: NumberOfGames
+final class ScoreController : ObservableObject {
+    private(set) var pointsPerGame: PointsPerGame = ._11
+    private(set) var numberOfGames: NumberOfGames = 3
     
-    init(pointsAndGames: PointsAndGames) {
-        self.pointsPerGame = pointsAndGames.0
-        self.numberOfGames = pointsAndGames.1
+    func update(pointsPerGame: PointsPerGame, numberOfGames: NumberOfGames) {
+        self.pointsPerGame = pointsPerGame
+        self.numberOfGames = numberOfGames
     }
     
-    var player1Name: Player = "Player 1"
-    var player2Name: Player = "Player 2"
+    @Published var player1Name: Player = "Player 1"
+    @Published var player2Name: Player = "Player 2"
     
-    var player1Score: UInt = 0
-    var player2Score: UInt = 0
+    @Published var player1Score: UInt = 0
+    @Published var player2Score: UInt = 0
     
     
     var isDuece: Bool {
-        // not yet handled
+        // not yet implemented
         return false
     }
     
@@ -63,3 +63,22 @@ class ScoreController {
         return currentlyLosingPlayer
     }
 }
+
+
+
+enum PointsPerGame: UInt, CaseIterable {
+    case _11 = 11
+    case _21 = 21
+    
+    typealias RawValue = UInt
+    
+    var text: String {
+        switch self {
+        case ._11:
+            return "11 points game"
+        case ._21:
+            return "21 points game"
+        }
+    }
+}
+

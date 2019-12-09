@@ -15,12 +15,20 @@ protocol GamesDelegation {
 typealias NumberOfGames = UInt
 struct GameSelectionView : View {
     let points: PointsPerGame
-    let gamesDelegate: GamesDelegation?
-    @State var numberOfGames: NumberOfGames = 1
+    
+    @EnvironmentObject
+    var scoreController: ScoreController
+
+    @State
+    var numberOfGames: NumberOfGames = 1
+    
+    
     var body: some View {
         VStack {
-            Text("Select # of games below:").lineLimit(0).font(.headline)
+            Text("Select # of games below:").lineLimit(2).font(.headline)
+            
             Spacer()
+            
             HStack {
                 Button(action: {
                     if self.numberOfGames > 1 {
@@ -36,20 +44,23 @@ struct GameSelectionView : View {
                     Text("+")
                 }
             }
+            
             Spacer()
-            Button(action: {
-                self.gamesDelegate?.didSelect(points: self.points, numberOfGames: self.numberOfGames)
-            }) {
+
+            NavigationLink(destination: ScoreView().environmentObject(scoreController)) {
                 Text("PLAY")
+            }.onTapGesture {
+                self.scoreController.update(pointsPerGame: self.points,
+                                            numberOfGames: self.numberOfGames)
             }
-        }
+        }.navigationBarTitle("Select games!")
     }
 }
 
 #if DEBUG
 struct GameSelectionView_Previews : PreviewProvider {
     static var previews: some View {
-        GameSelectionView(points: ._11, gamesDelegate: nil)
+        GameSelectionView(points: ._11).environmentObject(ScoreController())
     }
 }
 #endif

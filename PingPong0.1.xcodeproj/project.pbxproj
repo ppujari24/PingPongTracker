@@ -129,6 +129,8 @@
 		1A07C89A22A6EFAE00A586B0 /* PingPong0.1 WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1A57A3AA239CA4CD00B4D245 /* View */,
+				1A57A3A9239CA4BD00B4D245 /* Model */,
 				1A07C89D22A6EFAE00A586B0 /* HostingController.swift */,
 				1A07C89F22A6EFAE00A586B0 /* ExtensionDelegate.swift */,
 				1A07C8A122A6EFAE00A586B0 /* NotificationController.swift */,
@@ -137,10 +139,6 @@
 				1A07C8AA22A6EFAF00A586B0 /* Info.plist */,
 				1A07C8AB22A6EFAF00A586B0 /* PushNotificationPayload.apns */,
 				1A07C8A722A6EFAF00A586B0 /* Preview Content */,
-				1A07C89B22A6EFAE00A586B0 /* PointsSelectionView.swift */,
-				1A0A0E8422A86030008E9142 /* GameSelectionView.swift */,
-				1AC0F40822A786EE0098EF3F /* ScoreView.swift */,
-				1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */,
 			);
 			path = "PingPong0.1 WatchKit Extension";
 			sourceTree = "<group>";
@@ -151,6 +149,24 @@
 				1A07C8A822A6EFAF00A586B0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A57A3A9239CA4BD00B4D245 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1A57A3AA239CA4CD00B4D245 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A07C89B22A6EFAE00A586B0 /* PointsSelectionView.swift */,
+				1A0A0E8422A86030008E9142 /* GameSelectionView.swift */,
+				1AC0F40822A786EE0098EF3F /* ScoreView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
