@@ -18,9 +18,14 @@ struct GameSelectionView : View {
     
     @EnvironmentObject
     var scoreController: ScoreController
-
+    
     @State
-    var numberOfGames: NumberOfGames = 1
+    var numberOfGames: NumberOfGames = 1 {
+        didSet {
+            self.scoreController.update(pointsPerGame: self.points,
+                                        numberOfGames: self.numberOfGames)
+        }
+    }
     
     
     var body: some View {
@@ -49,11 +54,9 @@ struct GameSelectionView : View {
 
             NavigationLink(destination: ScoreView().environmentObject(scoreController)) {
                 Text("PLAY")
-            }.onTapGesture {
-                self.scoreController.update(pointsPerGame: self.points,
-                                            numberOfGames: self.numberOfGames)
-            }
-        }.navigationBarTitle("Select games!")
+                }
+        }
+        .navigationBarTitle("Select games!")
     }
 }
 

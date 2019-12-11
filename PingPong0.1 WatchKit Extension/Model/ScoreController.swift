@@ -13,13 +13,13 @@ typealias Player = String
 
 final class ScoreController : ObservableObject {
     private(set) var pointsPerGame: PointsPerGame = ._11
-    private(set) var numberOfGames: NumberOfGames = 3
     
     func update(pointsPerGame: PointsPerGame, numberOfGames: NumberOfGames) {
         self.pointsPerGame = pointsPerGame
         self.numberOfGames = numberOfGames
     }
     
+    @Published var numberOfGames: NumberOfGames = 1
     @Published var player1Name: Player = "Player 1"
     @Published var player2Name: Player = "Player 2"
     
@@ -34,7 +34,14 @@ final class ScoreController : ObservableObject {
     
     
     var didGameFinish: Bool {
-        return player1Score + player2Score == pointsPerGame.rawValue
+        let didGameFinish = player1Score + player2Score == pointsPerGame.rawValue
+        if didGameFinish {
+            if numberOfGames > 0 {
+                numberOfGames -= numberOfGames
+            }
+            reset()
+        }
+        return didGameFinish
     }
     
     
@@ -61,6 +68,22 @@ final class ScoreController : ObservableObject {
             return nil
         }
         return currentlyLosingPlayer
+    }
+}
+
+
+private extension ScoreController {
+    func reset() {
+        update(pointsPerGame: ._11, numberOfGames: 1)
+        
+        player1Score = 0
+        player2Score = 0
+        
+        player1Name = "Player 1"
+        player2Name = "Player 2"
+        
+        
+        
     }
 }
 

@@ -15,16 +15,9 @@ protocol ScoreControllerDelegation {
 
 
 struct ScoreView : View {
-    @State private var player1Total: UInt = 0 {
-        didSet {
-            self.scoreController.player1Score = self.player1Total
-            self.checkScore()
-        }
-    }
-    
-    @State private var player2Total: UInt = 0
     @State private var player1Name: Player = "Player 1"
     @State private var player2Name: Player = "Player 2"
+    @State private var didEndGame = false
     
     @EnvironmentObject
     var scoreController: ScoreController
@@ -32,66 +25,58 @@ struct ScoreView : View {
     
     var body: some View {
         VStack {
-            Spacer()
             HStack {
                 VStack {
                     TextField("Player 1 name",
                               text: $player1Name,
                               onCommit: { self.scoreController.player1Name = self.player1Name })
-                    Button(action: { self.player1Total += 1 }) {
-                        Text("\(player1Name)")
+                    Spacer()
+                    
+                    Button(action: {
+                        self.scoreController.player1Score += 1
+                        self.didEndGame = self.scoreController.didGameFinish
+                    }) {
+                        Text("\(scoreController.player1Score)")
+                            .font(.largeTitle)
+                            .frame(width: nil, height: 112, alignment: .leading)
                     }
+                    .shadow(color: .white, radius: 1, x: 0, y: 1)
                 }
+                
+                Divider()
                 
                 VStack {
                     TextField("Player 2 name",
                               text: $player2Name,
                               onCommit: { self.scoreController.player2Name = self.player2Name })
-                    Button(action: { self.player2Total += 1 }) {
-                        Text("\(player2Name)")
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.scoreController.player2Score += 1
+                        self.didEndGame = self.scoreController.didGameFinish
+                    }) {
+                        Text("\(scoreController.player2Score)")
+                            .font(.largeTitle)
+                            .frame(width: nil, height: 112, alignment: .leading)
                     }
+                    .shadow(color: .white, radius: 1, x: 0, y: 1)
                 }
+            }.sheet(isPresented: $didEndGame, onDismiss: {
+                
+            }) {
+                return ResultsView()
             }
-//            HStack {
-//                VStack {
-//                    TextField($player1Name,
-//                              placeholder: Text(self.scoreController.player1Name),
-//                              onCommit: { self.scoreController.player1Name = self.player1Name })
-//                    Button(action: {
-//                        self.player1Total = self.player1Total + 1
-//                        self.scoreController.player1Score = self.player1Total
-//                        self.checkScore()
-//                    }) {
-//                        Text("\(self.player1Total)").font(.subheadline)
-//                    }
-//                }
-//                Spacer()
-//                VStack {
-//                    TextField($player2Name,
-//                              placeholder: Text(self.scoreController.player2Name),
-//                              onCommit: { self.scoreController.player2Name = self.player2Name })
-//                    Button(action: {
-//                        self.player2Total = self.player2Total + 1
-//                        self.scoreController.player2Score = self.player2Total
-//                        self.checkScore()
-//                    }) {
-//                        Text("\(self.player2Total)").font(.subheadline)
-//                    }
-//                }
-//            }
-//
-//            Spacer()
-//            Text("#games: \(scoreController.numberOfGames)").lineLimit(0).font(.footnote)
-//            Text("#Points/game: " + scoreController.pointsPerGame.text).lineLimit(0).font(.footnote)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitle("#games: \(scoreController.numberOfGames)").font(.footnote)
     }
-    
-    
-    func checkScore() {
-        guard scoreController.didGameFinish else {
-            return
-        }
-//        scoreControllerDelegate?.didFinishGame(scoreController)
+}
+
+
+struct ResultsView: View {
+    var body: some View {
+        return Text("YOU WON!")
     }
 }
 
