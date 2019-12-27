@@ -20,6 +20,8 @@
 		1A0A0E8522A86030008E9142 /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0A0E8422A86030008E9142 /* GameSelectionView.swift */; };
 		1A0A0E8722A8ECEF008E9142 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */; };
 		1A8331B522A7112800687EEE /* PointsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07C89B22A6EFAE00A586B0 /* PointsSelectionView.swift */; };
+		1ABB173023B572D5005A558B /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB172F23B572D5005A558B /* ResultsView.swift */; };
+		1ABB173223B5E90B005A558B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB173123B5E90B005A558B /* Player.swift */; };
 		1AC0F40922A786EE0098EF3F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0F40822A786EE0098EF3F /* ScoreView.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		1A07C8AB22A6EFAF00A586B0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		1A0A0E8422A86030008E9142 /* GameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionView.swift; sourceTree = "<group>"; };
 		1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		1ABB172F23B572D5005A558B /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		1ABB173123B5E90B005A558B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1AC0F40822A786EE0098EF3F /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */,
+				1ABB173123B5E90B005A558B /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				1A07C89B22A6EFAE00A586B0 /* PointsSelectionView.swift */,
 				1A0A0E8422A86030008E9142 /* GameSelectionView.swift */,
 				1AC0F40822A786EE0098EF3F /* ScoreView.swift */,
+				1ABB172F23B572D5005A558B /* ResultsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -298,12 +304,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A0A0E8722A8ECEF008E9142 /* ScoreController.swift in Sources */,
+				1ABB173023B572D5005A558B /* ResultsView.swift in Sources */,
 				1A07C89E22A6EFAE00A586B0 /* HostingController.swift in Sources */,
 				1A8331B522A7112800687EEE /* PointsSelectionView.swift in Sources */,
 				1A07C8A222A6EFAE00A586B0 /* NotificationController.swift in Sources */,
 				1A0A0E8522A86030008E9142 /* GameSelectionView.swift in Sources */,
 				1A07C8A022A6EFAE00A586B0 /* ExtensionDelegate.swift in Sources */,
 				1A07C8A422A6EFAE00A586B0 /* NotificationView.swift in Sources */,
+				1ABB173223B5E90B005A558B /* Player.swift in Sources */,
 				1AC0F40922A786EE0098EF3F /* ScoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

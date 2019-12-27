@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias Player = String
-
 
 final class ScoreController : ObservableObject {
     private(set) var pointsPerGame: PointsPerGame = ._11
@@ -20,38 +18,43 @@ final class ScoreController : ObservableObject {
     }
     
     @Published var numberOfGames: NumberOfGames = 1
-    @Published var player1Name: Player = "Player 1"
-    @Published var player2Name: Player = "Player 2"
     
-    @Published var player1Score: UInt = 0
-    @Published var player2Score: UInt = 0
+    @Published var player1: Player = Player("Player 1")
+    @Published var player2: Player = Player("Player 2")
     
+    @Published var player1Score: UInt = 0 {
+        didSet {
+            self.player1.score = player1Score
+        }
+    }
+    @Published var player2Score: UInt = 0 {
+        didSet {
+            self.player2.score = player2Score
+        }
+    }
+    
+    @Published var didFinishTournament: Bool = false
     
     var isDuece: Bool {
-        // not yet implemented
-        return false
+        let finalScoreMinusOne = pointsPerGame.rawValue - 1
+        return player1Score == finalScoreMinusOne && player2Score == finalScoreMinusOne
     }
     
     
     var didGameFinish: Bool {
-        let didGameFinish = player1Score + player2Score == pointsPerGame.rawValue
-        if didGameFinish {
-            if numberOfGames > 0 {
-                numberOfGames -= numberOfGames
-            }
-            reset()
-        }
+        let finalScore = pointsPerGame.rawValue
+        let didGameFinish = player1Score == finalScore || player2Score == finalScore
         return didGameFinish
     }
     
     
     var currentlyLeadingPlayer: Player {
-        return player2Score > player1Score ? player2Name : player1Name
+        return player2Score > player1Score ? player2 : player1
     }
     
     
     var currentlyLosingPlayer: Player {
-        return player2Score < player1Score ? player2Name : player1Name
+        return player2Score < player1Score ? player2 : player1
     }
     
     
@@ -63,27 +66,40 @@ final class ScoreController : ObservableObject {
     }
     
     
-    var loser: Player? {
-        guard didGameFinish else {
-            return nil
+    var tournamentWinner: Player? {
+        guard didFinishTournament else {
+            return winner
         }
-        return currentlyLosingPlayer
+        return player1.numberOfGamesWon > player2.numberOfGamesWon ? player1 : player2
     }
 }
 
 
-private extension ScoreController {
-    func reset() {
-        update(pointsPerGame: ._11, numberOfGames: 1)
+extension ScoreController {
+    func resetCurrentGameStats() {
+        if player1Score > player2Score {
+            player1.numberOfGamesWon += 1
+        } else {
+            player2.numberOfGamesWon += 1
+        }
         
         player1Score = 0
         player2Score = 0
+        if numberOfGames > 0 {
+            numberOfGames -= 1
+        } else if numberOfGames == 0 {
+            resetTournament()
+        }
+    }
+    
+    
+    func resetTournament() {
+        didFinishTournament = true
         
-        player1Name = "Player 1"
-        player2Name = "Player 2"
+        update(pointsPerGame: ._11, numberOfGames: 1)
         
-        
-        
+        player1.update(name: "Player 1")
+        player2.update(name: "Player 2")
     }
 }
 
