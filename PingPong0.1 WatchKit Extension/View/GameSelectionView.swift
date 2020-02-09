@@ -51,10 +51,10 @@ struct GameSelectionView : View {
             }
             
             Spacer()
-
+            
             NavigationLink(destination: ScoreView().environmentObject(scoreController)) {
                 Text("PLAY")
-                }
+            }
         }
         .navigationBarTitle("Select games!")
     }

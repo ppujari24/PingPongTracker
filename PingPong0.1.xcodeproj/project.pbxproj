@@ -20,6 +20,7 @@
 		1A0A0E8522A86030008E9142 /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0A0E8422A86030008E9142 /* GameSelectionView.swift */; };
 		1A0A0E8722A8ECEF008E9142 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0A0E8622A8ECEF008E9142 /* ScoreController.swift */; };
 		1A8331B522A7112800687EEE /* PointsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07C89B22A6EFAE00A586B0 /* PointsSelectionView.swift */; };
+		1A87FB5723F08DF70053F9DD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A07C88C22A6EFAC00A586B0 /* Interface.storyboard */; };
 		1ABB173023B572D5005A558B /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB172F23B572D5005A558B /* ResultsView.swift */; };
 		1ABB173223B5E90B005A558B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB173123B5E90B005A558B /* Player.swift */; };
 		1AC0F40922A786EE0098EF3F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0F40822A786EE0098EF3F /* ScoreView.swift */; };
@@ -292,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A07C8A922A6EFAF00A586B0 /* Preview Assets.xcassets in Resources */,
+				1A87FB5723F08DF70053F9DD /* Interface.storyboard in Resources */,
 				1A07C8A622A6EFAF00A586B0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
