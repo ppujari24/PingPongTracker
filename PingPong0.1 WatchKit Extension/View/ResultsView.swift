@@ -29,20 +29,27 @@ struct ResultsView: View {
             Divider()
             
             if scoreController.didFinishTournament {
-                Text("\(tournamentWinner?.name ?? "") won by \(winner?.numberOfGamesWon ?? 0) games!")
+                if winner?.numberOfGamesWon ?? 0 == 0 {
+                    Text("\(winner?.name ?? "") won this game!")
                     .lineLimit(3)
+                } else {
+                    Text("\(tournamentWinner?.name ?? "") won by \(winner?.numberOfGamesWon ?? 0) games!")
+                        .lineLimit(3)
+                }
             } else {
                 Text("\(winner?.name ?? "") won this game!")
                     .lineLimit(3)
             }
             
             Button(action: {
-                self.scoreController.resetCurrentGameStats()
+                self.scoreController.resetGame()
                 if self.scoreController.didFinishTournament {
                     WKHostingController<PointsSelectionView>.reloadRootControllers(
                         withNamesAndContexts: [(name: "HostingController",
                                                 context: [:] as AnyObject)]
                     )
+                } else {
+                    NotificationCenter.default.post(name: .didFinishGame, object: self.scoreController)
                 }
             }) {
                 Text("Done")
@@ -50,6 +57,9 @@ struct ResultsView: View {
             }
             .accentColor(.green)
         }
+        .onAppear(perform: {
+            self.scoreController.resetCurrentGameStats()
+        })
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         .navigationBarTitle("")

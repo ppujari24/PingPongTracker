@@ -83,25 +83,24 @@ extension ScoreController {
             player2.numberOfGamesWon += 1
         }
         
-        player1Score = 0
-        player2Score = 0
-        
         if numberOfGames > 0 {
             numberOfGames -= 1
         }
+        
         if numberOfGames == 0 {
-            resetTournament()
+            didFinishTournament = true
         }
     }
     
-    
-    func resetTournament() {
-        didFinishTournament = true
+    func resetGame() {
+        player1Score = 0
+        player2Score = 0
         
-//        update(pointsPerGame: ._11, numberOfGames: 1)
-        
-        player1.update(name: "Player 1")
-        player2.update(name: "Player 2")
+        if didFinishTournament {
+            player1 = Player("Player 1")
+            player2 = Player("Player 2")
+            update(pointsPerGame: ._11, numberOfGames: UInt.max)
+        }
     }
 }
 

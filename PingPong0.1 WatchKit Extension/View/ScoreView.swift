@@ -13,7 +13,6 @@ struct ScoreView : View {
     @State private var player1Name: String = "Player 1"
     @State private var player2Name: String = "Player 2"
     @State private var didEndGame = false
-    @State private var didFinishTournament = false
     
     
     @EnvironmentObject
@@ -35,7 +34,6 @@ struct ScoreView : View {
                     Button(action: {
                         self.scoreController.player1Score += 1
                         self.didEndGame = self.scoreController.didGameFinish
-                        self.didFinishTournament = self.scoreController.didFinishTournament
                     }) {
                         Text("\(scoreController.player1Score)")
                             .font(.largeTitle)
@@ -61,7 +59,6 @@ struct ScoreView : View {
                     Button(action: {
                         self.scoreController.player2Score += 1
                         self.didEndGame = self.scoreController.didGameFinish
-                        self.didFinishTournament = self.scoreController.didFinishTournament
                     }) {
                         Text("\(scoreController.player2Score)")
                             .font(.largeTitle)
