@@ -17,19 +17,19 @@ struct PointsSelectionView : View {
                 .environmentObject(scoreController))
             {
                 Text("11 points game")
-                    .frame(height: 90)
+                    .frame(height: 85)
             }
             .listRowPlatterColor(Color(#colorLiteral(red: 153.0 / 255.0, green: 35.0 / 255.0,
-            blue: 29.0 / 255.0, alpha: 1.0)))
+                                                     blue: 29.0 / 255.0, alpha: 1.0)))
             NavigationLink(destination: GameSelectionView(points: ._21)
                 .environmentObject(scoreController))
             {
                 Text("21 points game")
-                    .frame(height: 90)
+                    .frame(height: 85)
             }
             .listRowPlatterColor(Color(#colorLiteral(red: 150.0 / 255.0, green: 10.0 / 255.0,
-            blue: 47.0 / 255.0, alpha: 1.0)))
-            }
+                                                     blue: 47.0 / 255.0, alpha: 1.0)))
+        }
         .navigationBarTitle(Text("Select!"))
     }
 }

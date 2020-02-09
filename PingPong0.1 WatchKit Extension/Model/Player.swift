@@ -9,7 +9,7 @@
 import Foundation
 
 
-final class Player {
+final class Player : NSObject {
     private(set) var name: String
     var score: UInt
     
@@ -25,5 +25,13 @@ final class Player {
     
     func update(name: String) {
         self.name = name
+    }
+    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.hash == rhs.hash
+    }
+    
+    override var hash: Int {
+        return name.hash
     }
 }

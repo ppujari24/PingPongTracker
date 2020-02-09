@@ -10,30 +10,56 @@ import SwiftUI
 
 
 struct ResultsView: View {
-    let winner: Player
-    let didEndTournament: Bool
+    @EnvironmentObject
+    var scoreController: ScoreController
+    
+    var winner : Player? {
+        return scoreController.winner
+    }
+    
+    
+    var tournamentWinner: Player? {
+        return scoreController.tournamentWinner
+    }
     
     
     var body: some View {
         VStack {
+            Text("Results")
             Divider()
             
-            if didEndTournament {
-                Text("\(winner.name) won by \(winner.numberOfGamesWon) games!").lineLimit(3)
+            if scoreController.didFinishTournament {
+                Text("\(tournamentWinner?.name ?? "") won by \(winner?.numberOfGamesWon ?? 0) games!")
+                    .lineLimit(3)
             } else {
-                Text("\(winner.name) won this game!").lineLimit(3)
+                Text("\(winner?.name ?? "") won this game!")
+                    .lineLimit(3)
             }
+            
+            Button(action: {
+                self.scoreController.resetCurrentGameStats()
+                if self.scoreController.didFinishTournament {
+                    WKHostingController<PointsSelectionView>.reloadRootControllers(
+                        withNamesAndContexts: [(name: "HostingController",
+                                                context: [:] as AnyObject)]
+                    )
+                }
+            }) {
+                Text("Done")
+                    .font(.footnote)
+            }
+            .accentColor(.green)
         }
         .navigationBarBackButtonHidden(true)
-        .navigationBarTitle("Results")
+        .navigationBarHidden(true)
+        .navigationBarTitle("")
         .font(.headline)
-        .lineLimit(3)
     }
 }
 
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView(winner: Player("Pooja"), didEndTournament: false)
+        ResultsView().environmentObject(ScoreController())
     }
 }

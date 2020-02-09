@@ -13,6 +13,8 @@ struct ScoreView : View {
     @State private var player1Name: String = "Player 1"
     @State private var player2Name: String = "Player 2"
     @State private var didEndGame = false
+    @State private var didFinishTournament = false
+    
     
     @EnvironmentObject
     var scoreController: ScoreController
@@ -33,13 +35,14 @@ struct ScoreView : View {
                     Button(action: {
                         self.scoreController.player1Score += 1
                         self.didEndGame = self.scoreController.didGameFinish
+                        self.didFinishTournament = self.scoreController.didFinishTournament
                     }) {
                         Text("\(scoreController.player1Score)")
                             .font(.largeTitle)
                             .frame(width: nil, height: 112, alignment: .leading)
                     }
-                    .accentColor(.green)
-                    .frame(width: nil, height: 110, alignment: .center)
+                    .accentColor(scoreController.player1Color)
+                    .frame(width: nil, height: 90, alignment: .center)
                     .shadow(color: .white, radius: 1, x: 0, y: 1)
                 }
                 
@@ -58,31 +61,46 @@ struct ScoreView : View {
                     Button(action: {
                         self.scoreController.player2Score += 1
                         self.didEndGame = self.scoreController.didGameFinish
+                        self.didFinishTournament = self.scoreController.didFinishTournament
                     }) {
                         Text("\(scoreController.player2Score)")
                             .font(.largeTitle)
                             .frame(width: nil, height: 112, alignment: .leading)
                     }
-                    .frame(width: nil, height: 110, alignment: .center)
+                    .accentColor(scoreController.player2Color)
+                    .frame(width: nil, height: 90, alignment: .center)
                     .shadow(color: .white, radius: 1, x: 0, y: 1)
                 }
             }
             .sheet(isPresented: $didEndGame, onDismiss: {
-                if self.scoreController.didFinishTournament {
-                    let rootInterfaceController = WKExtension.shared().rootInterfaceController
-                    rootInterfaceController?.popToRootController()
-                } else {
-                    self.scoreController.resetCurrentGameStats()
-                }
+                print("dismissed sheet")
             }) {
-                return ResultsView(winner: self.scoreController.tournamentWinner!,
-                                   didEndTournament: self.scoreController.didFinishTournament)
+                return ResultsView().environmentObject(self.scoreController)
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("#games: \(scoreController.numberOfGames)")
     }
 }
+
+
+extension ScoreController {
+    var player1Color: Color {
+        if player1.score == player2.score {
+            return .green
+        }
+        return currentlyLeadingPlayer == player1 ? .green : .red
+    }
+    
+    
+    var player2Color: Color {
+        if player1.score == player2.score {
+            return .green
+        }
+        return currentlyLeadingPlayer == player2 ? .green : .red
+    }
+}
+
 
 
 #if DEBUG

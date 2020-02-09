@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import SwiftUI
 
-class HostingController : WKHostingController<PointsSelectionView> {    
+class HostingController : WKHostingController<PointsSelectionView> {
     override var body: PointsSelectionView {
         return PointsSelectionView()
     }

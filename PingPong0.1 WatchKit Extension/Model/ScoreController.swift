@@ -85,9 +85,11 @@ extension ScoreController {
         
         player1Score = 0
         player2Score = 0
+        
         if numberOfGames > 0 {
             numberOfGames -= 1
-        } else if numberOfGames == 0 {
+        }
+        if numberOfGames == 0 {
             resetTournament()
         }
     }
@@ -96,7 +98,7 @@ extension ScoreController {
     func resetTournament() {
         didFinishTournament = true
         
-        update(pointsPerGame: ._11, numberOfGames: 1)
+//        update(pointsPerGame: ._11, numberOfGames: 1)
         
         player1.update(name: "Player 1")
         player2.update(name: "Player 2")
