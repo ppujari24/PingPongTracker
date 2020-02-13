@@ -20,12 +20,7 @@ struct GameSelectionView : View {
     var scoreController: ScoreController
     
     @State
-    var numberOfGames: NumberOfGames = 1 {
-        didSet {
-            self.scoreController.update(pointsPerGame: self.points,
-                                        numberOfGames: self.numberOfGames)
-        }
-    }
+    var numberOfGames: NumberOfGames = 1
     
     
     var body: some View {
@@ -56,6 +51,10 @@ struct GameSelectionView : View {
                 Text("PLAY")
             }
         }
+        .onDisappear(perform: {
+            self.scoreController.update(pointsPerGame: self.points,
+                                        numberOfGames: self.numberOfGames)
+        })
         .navigationBarTitle("Select games!")
     }
 }
