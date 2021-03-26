@@ -1,6 +1,6 @@
 # PingPong_0.1
 
-A watch-only app for keeping track of your Ping-Pong games.
+A SwiftUI watch-only app for keeping track of your Ping-Pong games.
  - You can select a 11-points game or a 21-points game. 
  - You can choose to play multiple games as a Tournament.
  - The app keeps track of which player wins the tournament.
